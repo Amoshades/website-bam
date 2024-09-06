@@ -60,7 +60,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="mt-[87px]">
+
+      </div>
     </div>
   );
 }
