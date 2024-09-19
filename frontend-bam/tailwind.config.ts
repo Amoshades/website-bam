@@ -17,6 +17,7 @@ const config: Config = {
         'stroke': '#AEABAB',
         'btn-bg': '#F6F6F6',
         'details-search': '#555555',
+        'main_black': '#1E1E1E',
       },
       backgroundImage: {
         'living-bg': "url('/png/living_room.png')",
