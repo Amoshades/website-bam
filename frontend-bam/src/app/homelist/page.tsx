@@ -13,39 +13,59 @@ export default function Home() {
       <NavBar/>
       
       <div className="mt-[40px] mx-[10%] flex flex-col gap-10">
-        <div className='pt-[50px] grid w-full h-[380px] text-main_black text-xl '>
-            <div>ค้นหาสินทรัพย์</div>
-            <div>
+        <div className='mt-[50px] w-full h-[380px] text-main_black text-xl grid grid-cols-6 gap-y-[30px] gap-x-[50px]'>
+            <div className='col-span-6 '>ค้นหาสินทรัพย์</div>
+            <div className='col-span-2'>
                 <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' />
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+            <div className='col-span-2'>
+                <p>ที่อยู่</p>
+                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' />
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+            <div className='col-span-2'>
+                <p>จังหวัด</p>
+                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+            <div className='col-span-2'>
+                <p>ราคา</p>
+                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' />
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+            <div className='col-span-1'>
+                <p>ขนาดพื้นที่ (ตารางเมตร)</p>
+                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+            <div className='col-span-1'>
+                <p>ขนาดพื้นที่ใช้สอย (ตารางเมตร)</p>
+                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <input type="text" className='bg-transparent outline-none after:outline-none text-base border rounded-xl text-main_black' />
+            <div className='col-span-1'>
+                <p>จำนวนห้องนอน</p>
+                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
-            <div>
-                <p>เลขไปรษณีย์</p>
-                <select name="cars" id="cars">
+            <div className='col-span-1'>
+                <p>จำนวนห้องน้ำ</p>
+                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
