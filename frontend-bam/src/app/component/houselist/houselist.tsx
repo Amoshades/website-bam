@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react'; // Import Icon from @iconify/react
 
 export default function HouseWidget() {
   return (
-    <div>
+    <div className="w-full">
       <a href="http://">
         <div className="h-[400px] w-[300px] rounded-3xl ">
           <div className="">
