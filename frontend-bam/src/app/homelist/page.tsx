@@ -3,15 +3,36 @@ import Pagination from '@mui/material/Pagination';
 import NavBar from '../component/menu/navbar';
 import Search from "../component/menu/search";
 import HouseWidget from "../component/houselist/houselist";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Icon } from '@iconify/react';
+import axios from 'axios';
+
+
 
 export default function Home() {
+    const [homeData, setHomeData] = useState([{}]);
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/house/');
+            if (response.data && Array.isArray(response.data.house)) {
+                setHomeData(response.data.house);
+                console.error("done", response.data.house);
+            } else {
+                console.error("Unexpected data format:", response.data);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };   
+    
+    useEffect(() => {
+        fetchData();
+        console.log(homeData)
+    }, [homeData]) 
   
   return (
     <div className="w-full min-h-[1130px] bg-white ">
       <NavBar/>
-      
       <div className="mt-[40px] mx-[10%] flex flex-col gap-10">
         <div className='mt-[50px] w-full h-[380px] text-main_black text-base grid grid-cols-6 gap-y-[30px] gap-x-[50px] '>
             <div className='col-span-6 font-line-bold'>ค้นหาสินทรัพย์</div>
@@ -88,7 +109,13 @@ export default function Home() {
             <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์ราคาพิเศษ</button>
             <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์สำหรับสมาชิกออนไลน์</button>
         </div>
-        <HouseWidget/>
+        {homeData.length > 0 && homeData.map((e) => {
+                return (
+                    <HouseWidget key={e.id} id={e.id} name={e.name} price={e.price} address={e.address} area={e.area} />
+                );
+            })}
+
+       
         <div className='w-full flex flex-col items-center '>
           <Pagination
             className=''
