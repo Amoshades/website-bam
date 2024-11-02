@@ -3,6 +3,30 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+@font-face {
+  font-family: 'LINESeed_Thin';
+  src: url("../../public/font/LINESeedSansTH_W_Th.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'LINESeed_Regular';
+  src: url("../../public/font/LINESeedSansTH_W_Rg.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'LINESeed_Bold';
+  src: url("../../public/font/LINESeedSansTH_W_Bd.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'LINESeed_ExtraBold';
+  src: url("../../public/font/LINESeedSansTH_W_XBd.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'LINESeed_Hevy';
+  src: url("../../public/font/LINESeedSansTH_W_He.woff2") format('woff2');
+}
 
 :root {
   --background: #ffffff;
@@ -19,8 +43,8 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  
+  font-family: 'LINESeed_Thin', 'LINESeed_Regular', 'LINESeed_Bold',
+        'LINESeed_ExtraBold', 'LINESeed_Hevy', sans-serif;
 }
 
 @layer utilities {

@@ -4,7 +4,7 @@ import searchIcon from '@iconify-icons/ic/round-search';
 
 export default function Search() {
   return (
-    <div className="w-full h-[366px] bg-living-bg z-0">
+    <div className="w-full h-[366px] bg-living-bg z-0 font-line-Regular">
         <div className="w-full h-full px-[10%] py-[3%] bg-gradient-to-r from-slate-200 to-transparent flex flex-col gap-3">
           <div className="text-2xl text-main-color">
             <p>คัดสรร คุ้มค่า เพื่อคุณ</p>

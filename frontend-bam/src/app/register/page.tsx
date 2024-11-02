@@ -6,8 +6,8 @@ export default function Register() {
   return (
     <div className=" ">
         <NavBar/>
-        <div className="w-full h-[799px] bg-white px-[192px] py-[30px] flex flex-col gap-[30px]">
-            <p className="text-main_black font-bold text-xl">สมัครสมาชิก</p>
+        <div className="w-full h-[799px] bg-white px-[192px] py-[30px] flex flex-col gap-[30px] font-line-Regular">
+            <p className="text-main_black font-bold text-xl font-line-bold">สมัครสมาชิก</p>
             <div className=" flex flex-row gap-[50px]">
                 <div className="flex flex-col gap-[20px]">
                     <div>

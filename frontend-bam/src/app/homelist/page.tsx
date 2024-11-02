@@ -9,72 +9,84 @@ import { Icon } from '@iconify/react';
 export default function Home() {
   
   return (
-    <div className="w-full min-h-[1130px] bg-white">
+    <div className="w-full min-h-[1130px] bg-white ">
       <NavBar/>
       
       <div className="mt-[40px] mx-[10%] flex flex-col gap-10">
-        <div className='mt-[50px] w-full h-[380px] text-main_black text-xl grid grid-cols-6 gap-y-[30px] gap-x-[50px]'>
-            <div className='col-span-6 '>ค้นหาสินทรัพย์</div>
-            <div className='col-span-2'>
+        <div className='mt-[50px] w-full h-[380px] text-main_black text-base grid grid-cols-6 gap-y-[30px] gap-x-[50px] '>
+            <div className='col-span-6 font-line-bold'>ค้นหาสินทรัพย์</div>
+            <div className='col-span-2 font-line-Regular'>
                 <p>เลขไปรษณีย์</p>
-                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' />
+                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[5%]' />
             </div>
-            <div className='col-span-2'>
+            <div className='col-span-2 font-line-Regular'>
                 <p>ที่อยู่</p>
-                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' />
+                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[5%]' />
             </div>
-            <div className='col-span-2'>
+            <div className='col-span-2 font-line-Regular'>
                 <p>จังหวัด</p>
-                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
+                <select className='w-full h-[50px] mt-[10px] select select-bordered bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[5%]'  name="cars" id="cars">
+                    <option value="">โปรดเลือก</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
             </div>
-            <div className='col-span-2'>
+            <div className='col-span-2 font-line-Regular'>
                 <p>ราคา</p>
-                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' />
+                <input type="text" className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[5%]' />
             </div>
-            <div className='col-span-1'>
+            <div className='col-span-1 font-line-Regular'>
                 <p>ขนาดพื้นที่ (ตารางเมตร)</p>
-                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
+                <select className='w-full h-[50px] mt-[10px] select select-bordered bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[10%]' name="cars" id="cars">
+                <option value="">เลือก</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
             </div>
-            <div className='col-span-1'>
+            <div className='col-span-1 font-line-Regular'>
                 <p>ขนาดพื้นที่ใช้สอย (ตารางเมตร)</p>
-                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
+                <select className='w-full h-[50px] mt-[10px] select select-bordered bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[10%]' name="cars" id="cars">
+                    <option value="">เลือก</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
             </div>
-            <div className='col-span-1'>
+            <div className='col-span-1 font-line-Regular'>
                 <p>จำนวนห้องนอน</p>
-                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
+                <select className='w-full h-[50px] mt-[10px] select select-bordered bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[10%]' name="cars" id="cars">
+                    <option value="">เลือก</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
             </div>
-            <div className='col-span-1'>
+            <div className='col-span-1 font-line-Regular'>
                 <p>จำนวนห้องน้ำ</p>
-                <select className='w-full h-[50px] mt-[10px] bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black' name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
+                <select className='w-full h-[50px] mt-[10px] select select-bordered bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[10%]' name="cars" id="cars">
+                    <option value="">เลือก</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
             </div>
         </div>
-        <div>
-
+        <div className='border-b-2 w-[120%] ml-[-10%]'></div>
+        <div className='flex justify-between'>
+            <p className='font-line-bold text-main_black my-auto'>ผลลัพท์  6,634 รายการ</p>
+            <select className='w-[200px] h-[50px] select select-bordered font-line-Regular bg-transparent outline-none after:outline-none text-base border rounded-full text-main_black px-[2%]' name="cars" id="cars">
+                    <option value="">ราคาต่ำ - สูง</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+            </select>
+        </div>
+        <div className='flex gap-[30px] font-line-Regular'>
+            <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">ทั้งหมด</button>
+            <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์ราคาพิเศษ</button>
+            <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์สำหรับสมาชิกออนไลน์</button>
         </div>
         <HouseWidget/>
         <div className='w-full flex flex-col items-center '>

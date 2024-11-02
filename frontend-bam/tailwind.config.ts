@@ -8,7 +8,11 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
+      'line-Thin': ['LINESeed_Thin', 'sans-serif'],
+      'line-Regular': ['LINESeed_Regular', 'sans-serif'],
+      'line-bold': ['LINESeed_Bold', 'sans-serif'],
+      'line-ExtraBold': ['LINESeed_ExtraBold', 'sans-serif'],
+      'line-Hevy': ['LINESeed_Hevy', 'sans-serif'],
     },
     extend: {
       colors: {

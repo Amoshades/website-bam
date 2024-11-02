@@ -7,7 +7,7 @@ export default function Accounts() {
     <div>
       <NavBar/>
       <div className="w-full h-[799px] bg-white px-[192px] py-[30px] flex flex-row ">
-        <div className="w-[258px] h-[305px] px-[20px] flex flex-col gap-[30px]">
+        <div className="w-[258px] h-[305px] px-[20px] flex flex-col gap-[30px] font-line-bold">
             <button className="flex flex-row gap-3 items-center">
                 <span><Icon icon="material-symbols:account-circle-outline" className="text-black" width={27.5} height={27.5} /></span>
                 <p className=' text-black text-xl font-normal'>บัญชี</p>
@@ -25,8 +25,8 @@ export default function Accounts() {
             </button>
         </div>
         <div className="w-[1278px] h-[406px] px-[129px] py-[30px] flex flex-col gap-[30px]">
-            <p className="text-main_black font-bold text-xl">ข้อมูลผู้ใช้</p>
-            <div className=" flex flex-row gap-[50px]">
+            <p className="text-main_black font-bold text-xl font-line-bold">ข้อมูลผู้ใช้</p>
+            <div className=" flex flex-row gap-[50px] font-line-Regular">
                 <div className="flex flex-col gap-[20px]">
                     <div>
                         <p className="text-base text-main_black">ชื่อ</p>
@@ -59,7 +59,7 @@ export default function Accounts() {
                 </div>
 
             </div>
-            <button className=" py-[10px] px-[25px] bg-button w-fit rounded-3xl text-main_black text-base mx-auto">แก้ไขข้อมูลส่วนตัว</button>
+            <button className="font-line-Regular py-[10px] px-[25px] bg-button w-fit rounded-3xl text-main_black text-base mx-auto">แก้ไขข้อมูลส่วนตัว</button>
         </div>
       </div>
     </div>
