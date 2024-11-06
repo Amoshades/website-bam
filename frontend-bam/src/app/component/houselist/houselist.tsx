@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react';
 type homelist = {id:string,name:string,price:string,address:string,area:string};
 export default function HouseWidget({id,name,price,address,area} : homelist) {
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <a href="http://">
         <div className="h-[400px] w-[300px] rounded-3xl ">
           <div className="">
@@ -21,7 +21,7 @@ export default function HouseWidget({id,name,price,address,area} : homelist) {
               </div>
               <p className="text-base font-bold text-red-600 font-line-bold ">{price}</p>
             </div>
-            <p className="text-center text-main_black text-sm font-line-Regular">โครงการเซอราโน่ พระราม 2 เฟส 1 ห้องชุดเลขที่ 45/222 ชั้น 8 อาคาร เอ</p>
+            <p className="text-center text-main_black text-sm font-line-Regular">{name}</p>
             <div className="flex flex-row gap-[15px]">
               <button className="flex flex-row text-white bg-main-color rounded-full py-[10px] px-[12px] ">
                 <span></span>

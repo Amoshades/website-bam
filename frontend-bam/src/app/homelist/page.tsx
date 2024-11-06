@@ -10,25 +10,27 @@ import axios from 'axios';
 
 
 export default function Home() {
-    const [homeData, setHomeData] = useState([{}]);
+    const [homeData, setHomeData] = useState<any[]>([]); // Initialize as an empty array
+
     const fetchData = async () => {
         try {
             const response = await axios.get('http://127.0.0.1:8000/house/');
-            if (response.data && Array.isArray(response.data.house)) {
-                setHomeData(response.data.house);
-                console.error("done", response.data.house);
+            // If response.data is an array, use it directly
+            if (Array.isArray(response.data)) {
+                setHomeData(response.data);  // Set the array directly to homeData
+                console.log("done", response.data);
             } else {
                 console.error("Unexpected data format:", response.data);
             }
         } catch (error) {
             console.error("Error fetching data:", error);
         }
-    };   
-    
+    };
+
     useEffect(() => {
         fetchData();
-        console.log(homeData)
-    }, [homeData]) 
+    }, []); // Empty dependency array to fetch data only once when component mounts
+
   
   return (
     <div className="w-full min-h-[1130px] bg-white ">
@@ -109,11 +111,15 @@ export default function Home() {
             <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์ราคาพิเศษ</button>
             <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์สำหรับสมาชิกออนไลน์</button>
         </div>
-        {homeData.length > 0 && homeData.map((e) => {
+        <div className='grid grid-cols-4 gap-4'>
+            {homeData.length > 0 && homeData.map((e) => {
                 return (
                     <HouseWidget key={e.id} id={e.id} name={e.name} price={e.price} address={e.address} area={e.area} />
                 );
             })}
+        </div>
+        
+
 
        
         <div className='w-full flex flex-col items-center '>
