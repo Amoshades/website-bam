@@ -114,7 +114,7 @@ export default function Home() {
         <div className='grid grid-cols-4 gap-4'>
             {homeData.length > 0 && homeData.map((e , index) => {
                 return (
-                    <HouseWidget key={index} id={e.asset_id} name={e.asset_project_name} price={e.price} provice={e.provice} subdistrict={e.sub_district} area={e.area} />
+                    <HouseWidget  key={index} id={e.asset_id} name={e.asset_project_name} price={e.price} provice={e.provice} subdistrict={e.sub_district} area={e.area} />
                 );
             })}
         </div>

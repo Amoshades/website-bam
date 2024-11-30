@@ -2,12 +2,17 @@
 
 import Image from "next/image";
 import { Icon } from '@iconify/react'; 
+import { useRouter } from 'next/navigation';
 
 type homelist = {id:string,name:string,price:string,provice:string,area:string,subdistrict:string};
+
 export default function HouseWidget({id,name,price,provice,subdistrict,area} : homelist) {
+
+  const router = useRouter();
+  
   return (
-    <div className="w-full ">
-      <a href="http://">
+    <div className="w-full " >
+      <div onClick={() => router.push(`/homedetail/${id}`)}>
         <div className="h-[400px] w-[300px] rounded-3xl ">
           <div className="">
             <Image src="/png/list_photo.png" alt="houselist" width={300} height={194} />
@@ -33,7 +38,7 @@ export default function HouseWidget({id,name,price,provice,subdistrict,area} : h
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 }
