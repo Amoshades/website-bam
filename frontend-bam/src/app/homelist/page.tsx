@@ -14,7 +14,7 @@ export default function Home() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/house/');
+            const response = await axios.get('http://127.0.0.1:8000/house/');
             // If response.data is an array, use it directly
             if (Array.isArray(response.data)) {
                 setHomeData(response.data);  // Set the array directly to homeData
@@ -29,7 +29,7 @@ export default function Home() {
 
     useEffect(() => {
         fetchData();
-    }, []); // Empty dependency array to fetch data only once when component mounts
+    }, []); 
 
   
   return (
@@ -112,9 +112,9 @@ export default function Home() {
             <button className="bg-white  rounded-full text-main_black border-main-color border px-[30px] py-[10px]">สินทรัพย์สำหรับสมาชิกออนไลน์</button>
         </div>
         <div className='grid grid-cols-4 gap-4'>
-            {homeData.length > 0 && homeData.map((e) => {
+            {homeData.length > 0 && homeData.map((e , index) => {
                 return (
-                    <HouseWidget key={e.id} id={e.id} name={e.name} price={e.price} address={e.address} area={e.area} />
+                    <HouseWidget key={index} id={e.asset_id} name={e.asset_project_name} price={e.price} provice={e.provice} subdistrict={e.sub_district} area={e.area} />
                 );
             })}
         </div>
