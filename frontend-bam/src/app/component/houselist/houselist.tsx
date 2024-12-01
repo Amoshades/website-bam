@@ -9,10 +9,10 @@ type homelist = {id:string,name:string,price:string,provice:string,area:string,s
 export default function HouseWidget({id,name,price,provice,subdistrict,area} : homelist) {
 
   const router = useRouter();
-  
+
   return (
     <div className="w-full " >
-      <div onClick={() => router.push(`/homedetail/${id}`)}>
+      <div className="" onClick={() => router.push(`/homedetail/${id}`)}>
         <div className="h-[400px] w-[300px] rounded-3xl ">
           <div className="">
             <Image src="/png/list_photo.png" alt="houselist" width={300} height={194} />
