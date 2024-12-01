@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import NavBar from "../component/menu/navbar";
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -13,7 +14,15 @@ export default function Login() {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+      Swal.fire({
+        title: 'กรุณากรอกอีเมลและรหัสผ่าน',
+        text:  '',
+        icon: 'error',
+        confirmButtonText: 'ตกลง',
+        customClass: {
+          confirmButton: 'bg-red-500 text-white px-6 py-2 rounded-full',
+        },
+      });
       return;
     }
 
@@ -23,20 +32,40 @@ export default function Login() {
       const response = await fetch('http://0.0.0.0:8000/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': 'application/json',
+          'Accept': 'application/json', // ยอมรับ JSON
+          'Content-Type': 'application/json', // ส่ง JSON
+
         },
-        body: new URLSearchParams({ email, password }).toString(),
+        credentials: 'include',
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
       });
 
+
       if (response.ok) {
-        const data = await response.json();
-        alert("เข้าสู่ระบบสำเร็จ");
-        console.log("Token:", data.token); // เก็บ Token ไว้ใช้งาน
+        await Swal.fire({
+          title: 'เข้าสู่ระบบสำเร็จ!',
+          text: '',
+          icon: 'success',
+          confirmButtonText: 'ตกลง',
+          customClass: {
+            confirmButton: 'bg-blue-500 text-white px-6 py-2 rounded-full',
+          },
+        });
         router.push('/homelist');
       } else {
         const errorData = await response.json();
-        alert(errorData.message || "เกิดข้อผิดพลาด");
+        Swal.fire({
+          title: 'เกิดข้อผิดพลาด!',
+          text: errorData.message || 'ไม่สามารถเข้าสู่ระบบได้',
+          icon: 'error',
+          confirmButtonText: 'ตกลง',
+          customClass: {
+            confirmButton: 'bg-red-500 text-white px-6 py-2 rounded-full',
+          },
+        });
       }
     } catch (error) {
       console.error("Error during login:", error);
