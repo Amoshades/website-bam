@@ -5,6 +5,7 @@ import NavBar from "../component/menu/navbar";
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
+import Footer from '../component/menu/footer';
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -29,7 +30,7 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://0.0.0.0:8000/auth/login', {
+      const response = await fetch('http://localhost:8000/auth/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json', // ยอมรับ JSON
@@ -115,6 +116,7 @@ export default function Login() {
           
         </div>
       </div>
+    <Footer/>
     </div>
   );
 }

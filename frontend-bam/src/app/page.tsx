@@ -6,7 +6,7 @@ import HouseWidget from './component/houselist/houselist';
 import { useState,useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import axios from 'axios';
-
+import Footer from './component/menu/footer';
 
 
 export default function Home() {
@@ -74,11 +74,12 @@ export default function Home() {
               boundaryCount={1}
             />
         </div>
-        <button className=' mx-auto bg-main-color rounded-full px-[35px] py-[10px] flex flex-row gap-3 items-center'>
+        <button className=' mx-auto bg-main-color rounded-full px-[35px] py-[10px] flex flex-row gap-3 items-center mb-[50px]'>
           <span><Icon icon="material-symbols:home" style={{ color: '#FFFFFF' }} width={21} height={21} /></span>
           <a href='http://localhost:3000/homelist' className=' text-white text-xl font-line-Regular'>ดูทรัพย์ทั้งหมด</a>
         </button>
       </div>
+      <Footer/>
     </div>
   );
 }

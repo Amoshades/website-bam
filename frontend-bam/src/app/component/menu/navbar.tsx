@@ -10,7 +10,7 @@ export default function NavBar() {
 
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch('http://0.0.0.0:8000/auth/status', {
+      const response = await fetch('http://localhost:8000/auth/status', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -39,7 +39,7 @@ export default function NavBar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://0.0.0.0:8000/auth/logout', {
+      const response = await fetch('http://localhost:8000/auth/logout', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -74,7 +74,7 @@ export default function NavBar() {
       <a className="basis-1/6" href=""></a>
       <a className="basis-1/6" href=""></a>
       <a className="basis-1/6 " href="http://localhost:3000/homelist">ข้อมูลรายการอสังหาริมทรัพย์</a>
-      <a className="basis-1/6 text-center" href="">ข้อมูลผู้ใช้</a>
+      <a className="basis-1/6 text-center" href="http://localhost:3000/accounts">ข้อมูลผู้ใช้</a>
       <div className="basis-1/6">
         {isLoggedIn ? (
           <button

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import NavBar from "../component/menu/navbar";
 import { Icon } from '@iconify/react';
+import Footer from "../component/menu/footer";
 
 export default function Register() {
     const [email, setEmail] = useState<string>("");
@@ -138,6 +139,7 @@ export default function Register() {
                     {isLoading ? "กำลังสมัครสมาชิก..." : "สมัครสมาชิก"}
                 </button>
             </div>
+        <Footer/>
         </div>
     );
 }
