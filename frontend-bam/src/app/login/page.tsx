@@ -112,7 +112,7 @@ export default function Login() {
           >
           {isLoading ? "กำลังโหลด..." : "ลงชื่อเข้าใช้"}
           </button>
-          <div className="text-xl font-black text-main-color text-center font-line-bold">สมัครสมาชิก</div>
+          <a href='http://localhost:3000/register' className="text-xl font-black text-main-color text-center font-line-bold">สมัครสมาชิก</a>
           
         </div>
       </div>

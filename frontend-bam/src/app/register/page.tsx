@@ -3,6 +3,8 @@ import { useState } from "react";
 import NavBar from "../component/menu/navbar";
 import { Icon } from '@iconify/react';
 import Footer from "../component/menu/footer";
+import Swal from "sweetalert2";
+import { useRouter } from 'next/navigation';
 
 export default function Register() {
     const [email, setEmail] = useState<string>("");
@@ -12,6 +14,7 @@ export default function Register() {
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
     const handleRegister = async () => {
         if (!email || !password || !confirmPassword || !name || !surname || !number) {
@@ -34,8 +37,16 @@ export default function Register() {
             });
 
             if (response.ok) {
-                alert("สมัครสมาชิกสำเร็จ!");
-                // เปลี่ยนไปยังหน้า Login หรือ Reset State
+                Swal.fire({
+                    icon: "success",
+                    title: "สมัครสมาชิกสำเร็จ!",
+                    text: "กรุณาเข้าสู่ระบบ",
+                    confirmButtonText: "ไปที่หน้าเข้าสู่ระบบ",
+                }).then(() => {
+                    router.push('/login'); // เปลี่ยนหน้าไปยังหน้าล็อกอิน
+                });
+
+                // รีเซ็ตค่าฟอร์ม
                 setEmail("");
                 setPassword("");
                 setConfirmPassword("");
@@ -44,11 +55,19 @@ export default function Register() {
                 setNumber("");
             } else {
                 const errorData = await response.json();
-                alert(errorData.detail || "เกิดข้อผิดพลาดในการสมัครสมาชิก");
+                Swal.fire({
+                    icon: "error",
+                    title: "เกิดข้อผิดพลาด",
+                    text: errorData.detail || "เกิดข้อผิดพลาดในการสมัครสมาชิก",
+                });
             }
         } catch (error) {
             console.error("Error during registration:", error);
-            alert("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้");
+            Swal.fire({
+                icon: "error",
+                title: "ข้อผิดพลาดในการเชื่อมต่อ",
+                text: "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้",
+            });
         } finally {
             setIsLoading(false); // หยุดการโหลด
         }
@@ -65,7 +84,7 @@ export default function Register() {
                             <p className="text-base text-main_black">ชื่อ</p>
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
-                                    className="bg-transparent outline-none text-base text-main_black"
+                                    className="w-full bg-transparent outline-none text-base text-main_black"
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
@@ -76,7 +95,7 @@ export default function Register() {
                             <p className="text-base text-main_black">เบอร์โทรศัพท์</p>
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
-                                    className="bg-transparent outline-none text-base text-main_black"
+                                    className="w-full bg-transparent outline-none text-base text-main_black"
                                     type="text"
                                     value={number}
                                     onChange={(e) => setNumber(e.target.value)}
@@ -87,7 +106,7 @@ export default function Register() {
                             <p className="text-base text-main_black">รหัสผ่าน</p>
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
-                                    className="bg-transparent outline-none text-base text-main_black"
+                                    className="w-full bg-transparent outline-none text-base text-main_black"
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -100,7 +119,7 @@ export default function Register() {
                             <p className="text-base text-main_black">นามสกุล</p>
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
-                                    className="bg-transparent outline-none text-base text-main_black"
+                                    className="w-full bg-transparent outline-none text-base text-main_black"
                                     type="text"
                                     value={surname}
                                     onChange={(e) => setSurname(e.target.value)}
@@ -111,7 +130,7 @@ export default function Register() {
                             <p className="text-base text-main_black">อีเมล</p>
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
-                                    className="bg-transparent outline-none text-base text-main_black"
+                                    className="w-full bg-transparent outline-none text-base text-main_black"
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -122,7 +141,7 @@ export default function Register() {
                             <p className="text-base text-main_black">กรอกรหัสผ่านอีกครั้ง</p>
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
-                                    className="bg-transparent outline-none text-base text-main_black"
+                                    className="w-full bg-transparent outline-none text-base text-main_black"
                                     type="password"
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
