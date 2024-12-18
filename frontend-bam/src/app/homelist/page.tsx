@@ -62,10 +62,10 @@ export default function Home() {
             } else {
                 // ถ้าไม่มี params ใช้ API หลัก
                 fullURL = "http://localhost:8000/house/";
-                console.log(homeData);
+                
             }
 
-            console.log("Request URL:", fullURL);
+            
 
             // ดึงข้อมูลจาก API
             const response = await axios.get(fullURL);
@@ -74,12 +74,12 @@ export default function Home() {
                 // กรณี API ค้นหา
                 setHomeData(response.data.results);
                 setErrorMessage("");
-                console.log("Filtered data loaded:", response.data.results);
+                
             } else if (Array.isArray(response.data)) {
                 // กรณี API หลัก
                 setHomeData(response.data);
                 setErrorMessage("");
-                console.log("All data loaded:", response.data);
+                
             } else {
                 setErrorMessage("ไม่พบผลลัพธ์");
                 setHomeData([]);
@@ -112,7 +112,7 @@ export default function Home() {
     // โหลดข้อมูลอำเภอตามจังหวัดที่เลือก
     const handleProvinceChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedProvince = e.target.value;
-        console.log("Selected Province:", selectedProvince); // Debugging
+         // Debugging
         setSelectedProvince(selectedProvince);
         setSelectedSubDistrict('');
         try {
@@ -127,11 +127,7 @@ export default function Home() {
             setAllSubDistricts([]);
             setSelectedDistrict('');
             setSelectedSubDistrict('');
-            console.log({
-                selectedProvince, // ตรวจสอบจังหวัด
-                selectedDistrict: '', // รีเซ็ตค่า
-                selectedSubDistrict: '', // รีเซ็ตค่า
-            });
+            
 
         } catch (error) {
             console.error('Error fetching districts:', error);
@@ -152,11 +148,7 @@ export default function Home() {
 
             setAllSubDistricts(uniqueSubDistricts);
             setSelectedSubDistrict('');
-            console.log({
-                selectedProvince, // ตรวจสอบจังหวัดปัจจุบัน
-                selectedDistrict, // ตรวจสอบอำเภอที่เลือก
-                selectedSubDistrict: '', // รีเซ็ตตำบล
-            });
+            
         } catch (error) {
             console.error('Error fetching sub-districts:', error);
         }
@@ -219,7 +211,7 @@ export default function Home() {
                 });
             } else {
                 setErrorMessage("เกิดข้อผิดพลาดในการโหลดข้อมูล");
-                console.error("Error fetching data:", error);
+                
             }
             setHomeData([]); // Clear data on error
         }
@@ -338,11 +330,7 @@ export default function Home() {
                                 value={selectedSubDistrict}
                                 onChange={(e) => {
                                     setSelectedSubDistrict(e.target.value);
-                                    console.log({
-                                        selectedProvince, // จังหวัดปัจจุบัน
-                                        selectedDistrict, // อำเภอปัจจุบัน
-                                        selectedSubDistrict: e.target.value, // ตำบลที่เลือก
-                                    });
+                                    
                                 }}
                             >
                                 <option value="">เลือกตำบล</option>

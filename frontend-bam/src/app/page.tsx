@@ -20,13 +20,13 @@ export default function Home() {
           // If response.data is an array, use it directly
           if (Array.isArray(response.data)) {
               setHomeData(response.data);  // Set the array directly to homeData
-              console.log("done", response.data);
+              
                 
           } else {
-              console.error("Unexpected data format:", response.data);
+              console.error("Unexpected data format:");
           }
       } catch (error) {
-          console.error("Error fetching data:", error);   
+          console.error("Error fetching data:");   
       }
     };
     const startIndex = (currentPage - 1) * itemsPerPage;
