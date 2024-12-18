@@ -1,10 +1,10 @@
 'use client';
 import { useState } from "react";
 import NavBar from "../component/menu/navbar";
-import { Icon } from '@iconify/react';
 import Footer from "../component/menu/footer";
 import Swal from "sweetalert2";
 import { useRouter } from 'next/navigation';
+import { Icon } from "@iconify/react";
 
 export default function Register() {
     const [email, setEmail] = useState<string>("");
@@ -14,21 +14,34 @@ export default function Register() {
     const [password, setPassword] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false); // สถานะแสดง/ซ่อนรหัสผ่าน
+    const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false); // สถานะแสดง/ซ่อนรหัสผ่านยืนยัน
     const router = useRouter();
 
     const handleRegister = async () => {
         if (!email || !password || !confirmPassword || !name || !surname || !number) {
-            return alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+            Swal.fire({
+                title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+                icon: 'error',
+                confirmButtonText: 'ตกลง',
+            });
+            return;
         }
 
         if (password !== confirmPassword) {
-            return alert("รหัสผ่านไม่ตรงกัน");
+            Swal.fire({
+                title: 'รหัสผ่านไม่ตรงกัน',
+                text: 'กรุณากรอกรหัสผ่านให้ตรงกัน',
+                icon: 'error',
+                confirmButtonText: 'ตกลง',
+            });
+            return;
         }
 
-        setIsLoading(true); // เริ่มการโหลด
+        setIsLoading(true);
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/auth/register`, {
+            const response = await fetch(`http://localhost:8000/auth/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -69,12 +82,12 @@ export default function Register() {
                 text: "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้",
             });
         } finally {
-            setIsLoading(false); // หยุดการโหลด
+            setIsLoading(false);
         }
     };
 
     return (
-        <div className="">
+        <div>
             <NavBar />
             <div className="w-full h-[799px] bg-white px-[192px] py-[30px] flex flex-col gap-[30px] font-line-Regular">
                 <p className="text-main_black font-bold text-xl font-line-bold">สมัครสมาชิก</p>
@@ -96,7 +109,7 @@ export default function Register() {
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
                                     className="w-full bg-transparent outline-none text-base text-main_black"
-                                    type="text"
+                                    type="tel"
                                     value={number}
                                     onChange={(e) => setNumber(e.target.value)}
                                 />
@@ -107,10 +120,18 @@ export default function Register() {
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
                                     className="w-full bg-transparent outline-none text-base text-main_black"
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                <button onClick={() => setShowPassword(!showPassword)}>
+                                    <Icon
+                                        icon={showPassword ? "ion:eye-outline" : "ion:eye-off-outline"}
+                                        style={{ color: '#004C85' }}
+                                        width={21}
+                                        height={21}
+                                    />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -142,10 +163,18 @@ export default function Register() {
                             <div className="w-[743px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
                                 <input
                                     className="w-full bg-transparent outline-none text-base text-main_black"
-                                    type="password"
+                                    type={showConfirmPassword ? "text" : "password"}
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
                                 />
+                                <button onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                                    <Icon
+                                        icon={showConfirmPassword ? "ion:eye-outline" : "ion:eye-off-outline"}
+                                        style={{ color: '#004C85' }}
+                                        width={21}
+                                        height={21}
+                                    />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -158,7 +187,7 @@ export default function Register() {
                     {isLoading ? "กำลังสมัครสมาชิก..." : "สมัครสมาชิก"}
                 </button>
             </div>
-        <Footer/>
+            <Footer />
         </div>
     );
 }

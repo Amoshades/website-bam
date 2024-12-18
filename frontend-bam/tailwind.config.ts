@@ -28,9 +28,27 @@ const config: Config = {
       },
       backgroundImage: {
         'living-bg': "url('/png/living_room.png')",
-        
       }
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          "primary": "#004C85",
+          "secondary": "#F8E47D",
+          "accent": "#FF2A2A",
+          "neutral": "#AEABAB",
+          "base-100": "#ffffff",
+          "info": "#37cdbe",
+          "success": "#36d399",
+          "warning": "#f6d860",
+          "error": "#f87272",
+        },
+      },
+      "dark", // Default dark theme from daisyUI
+      "cupcake", // Default cupcake theme from daisyUI
+    ],
   },
   plugins: [
     require('daisyui'),

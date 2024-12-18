@@ -28,7 +28,7 @@ export default function HomeDetail() {
 
   const fetchHouseDetail = async () => {
     try {
-      const response = await axios.get(`http://0.0.0.0:8000/house/getdetail?asset_id=${houseId}`);
+      const response = await axios.get(`http://localhost:8000/house/getdetail?asset_id=${houseId}`);
       setHouseData(response.data);
     } catch (error) {
       Swal.fire({
@@ -44,7 +44,7 @@ export default function HomeDetail() {
   const fetchRecommendations = async (method: string, setter: any) => {
     try {
       const response = await axios.post(
-        `http://0.0.0.0:8000/recommendation/`,
+        `http://localhost:8000/recommendation/`,
         {},
         {
           params: {
@@ -244,7 +244,7 @@ export default function HomeDetail() {
             />
           </div>
         </div>
-        
+        cd
       </div>
       <Footer/>
     </div>

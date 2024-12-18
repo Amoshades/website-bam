@@ -16,7 +16,7 @@ export default function Home() {
 
   const fetchData = async () => {
       try {
-          const response = await axios.get('http://127.0.0.1:8000/house/');
+          const response = await axios.get('http://localhost:8000/house/');
           // If response.data is an array, use it directly
           if (Array.isArray(response.data)) {
               setHomeData(response.data);  // Set the array directly to homeData
