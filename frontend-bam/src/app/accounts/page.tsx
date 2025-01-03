@@ -10,7 +10,6 @@ export default function Accounts() {
     name: "",
     surname: "",
     number: "",
-    email: "",
   });
   const [isEditing, setIsEditing] = useState(false); // State to control edit mode
 
@@ -45,33 +44,65 @@ export default function Accounts() {
     }
   };
 
+  // Update user profile
+  const updateProfile = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/users/update-profile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        credentials: 'include', // Include HTTP-only cookies
+        body: JSON.stringify(profile),
+      });
+
+      if (response.ok) {
+        Swal.fire({
+          title: "Success",
+          text: "Profile updated successfully.",
+          icon: "success",
+        });
+        setIsEditing(false); // Exit edit mode
+      } else {
+        const errorData = await response.json();
+        Swal.fire({
+          title: "Error",
+          text: errorData.detail ? errorData.detail[0].msg : "Unable to update profile.",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      Swal.fire({
+        title: "Error",
+        text: "Unable to connect to the server.",
+        icon: "error",
+      });
+    }
+  };
+
   useEffect(() => {
     fetchProfile();
   }, []);
-
-  // Handle edit button
-  const handleEdit = () => {
-    setIsEditing(!isEditing); // Toggle edit mode
-  };
 
   return (
     <div>
       <NavBar />
       <div className="w-full h-[799px] bg-white px-[192px] py-[30px] flex flex-row">
         <div className="w-[258px] h-[305px] px-[20px] flex flex-col gap-[30px] font-line-bold">
-          <a className="flex flex-row gap-3 items-center text-main-color">
+          <a href="http://localhost:3000/accounts" className="flex flex-row gap-3 items-center text-main-color">
             <span>
               <Icon icon="material-symbols:account-circle-outline" className="text-main-color" width={27.5} height={27.5} />
             </span>
             <p className="text-main-color text-xl font-normal">บัญชี</p>
           </a>
-          <button className="flex flex-row gap-3 items-center">
+          <a href="http://localhost:3000/favorite" className="flex flex-row gap-3 items-center">
             <span>
               <Icon icon="mdi:heart-outline" className="text-black" width={27.5} height={27.5} />
             </span>
             <p className="text-black text-xl font-normal">รายการโปรด</p>
-          </button>
-          
+          </a>
           <button className="flex flex-row gap-3 items-center pl-[20px]">
             <p className="text-red-600 text-xl font-bold">ลบบัญชี</p>
           </button>
@@ -118,28 +149,28 @@ export default function Accounts() {
                   />
                 </div>
               </div>
-              {/* <div>
-                <p className="text-base text-main_black">อีเมล</p>
-                <div className="w-[485px] h-[40px] border border-stroke rounded-3xl px-5 flex items-center py-3 mt-[10px]">
-                  <input
-                    className="bg-transparent outline-none text-base text-main_black"
-                    type="text"
-                    value={profile.email}
-                    readOnly={true} // Always locked
-                  />
-                </div>
-              </div> */}
             </div>
           </div>
-          <button
-            className="font-line-Regular py-[10px] px-[25px] bg-button w-fit rounded-3xl text-main_black text-base mx-auto"
-            onClick={handleEdit}
-          >
-            {isEditing ? "บันทึกข้อมูล" : "แก้ไขข้อมูลส่วนตัว"}
-          </button>
+          {/* <div className="flex justify-center gap-4 mt-5">
+            {!isEditing ? (
+              <button
+                className="font-line-Regular py-[10px] px-[25px] bg-gray-200 w-fit rounded-3xl text-main_black text-base"
+                onClick={() => setIsEditing(true)}
+              >
+                แก้ไขข้อมูลส่วนตัว
+              </button>
+            ) : (
+              <button
+                className="font-line-Regular py-[10px] px-[25px] bg-button w-fit rounded-3xl text-main_black text-base"
+                onClick={updateProfile}
+              >
+                บันทึกข้อมูล
+              </button>
+            )}
+          </div> */}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
