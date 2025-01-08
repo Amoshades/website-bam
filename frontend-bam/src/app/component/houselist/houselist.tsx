@@ -14,7 +14,7 @@ export default function HouseWidget({id,name,price,provice,subdistrict,area} : h
 
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch('http://bam-backend.progressio.tech/auth/status', {
+      const response = await fetch('http://localhost:8000/auth/status', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -53,7 +53,7 @@ export default function HouseWidget({id,name,price,provice,subdistrict,area} : h
 
     // ดำเนินการเพิ่มหรือลบรายการโปรด
     try {
-      const response = await fetch(`http://bam-backend.progressio.tech/users/add-favorite?asset_id=${id}`, {
+      const response = await fetch(`http://localhost:8000/users/add-favorite?asset_id=${id}`, {
         method: isFavorite ? 'DELETE' : 'POST',
         headers: {
           'Accept': 'application/json',

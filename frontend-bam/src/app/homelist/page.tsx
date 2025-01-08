@@ -58,10 +58,10 @@ export default function Home() {
             // ตรวจสอบว่ามี params หรือไม่
             if (params.toString()) {
                 // ถ้ามี params ใช้ API ค้นหา
-                fullURL = `http://bam-backend.progressio.tech/house/search?${params.toString()}`;
+                fullURL = `http://localhost:8000/house/search?${params.toString()}`;
             } else {
                 // ถ้าไม่มี params ใช้ API หลัก
-                fullURL = "http://bam-backend.progressio.tech/house/";
+                fullURL = "http://localhost:8000/house/";
                 
             }
 
@@ -181,7 +181,7 @@ export default function Home() {
             if (selectedDistrict) params.append('district', selectedDistrict);
             if (selectedSubDistrict) params.append('sub_district', selectedSubDistrict);
 
-            const response = await axios.get(`http://bam-backend.progressio.tech/house/search?${params.toString()}`);
+            const response = await axios.get(`http://localhost:8000/house/search?${params.toString()}`);
 
             if (response.data?.results) {
                 setHomeData(response.data.results); // Set the data from API
