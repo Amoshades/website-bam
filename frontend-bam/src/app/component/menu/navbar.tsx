@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch('http://localhost:8000/auth/status', {
+      const response = await fetch('http://bam-backend.progressio.tech/auth/status', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -38,7 +38,7 @@ export default function NavBar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:8000/auth/logout', {
+      const response = await fetch('http://bam-backend.progressio.tech/auth/logout', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -105,12 +105,12 @@ export default function NavBar() {
 
   return (
     <div className="w-full h-[120px] bg-main-color flex flex-row px-[10%] items-center font-line-bold sticky top-0 z-50">
-      <a href="http://localhost:3000" className="basis-1/6 ">
+      <a href="http://bam.progressio.tech" className="basis-1/6 ">
         <Image src="/png/Bam_logo.png" alt="Logo" width={66} height={63} />
       </a>
       <a className="basis-1/6" href=""></a>
       <a className="basis-1/6" href=""></a>
-      <a className="basis-1/6 font-line-bold" href="http://localhost:3000/homelist">ข้อมูลรายการอสังหาริมทรัพย์</a>
+      <a className="basis-1/6 font-line-bold" href="http://bam.progressio.tech/homelist">ข้อมูลรายการอสังหาริมทรัพย์</a>
       <div className="basis-1/6 text-center">
         <button
           onClick={handleAccountClick}
@@ -128,7 +128,7 @@ export default function NavBar() {
             ออกจากระบบ 
           </button>
         ) : (
-          <a href="http://localhost:3000/login">
+          <a href="http://bam.progressio.tech/login">
             <button className="bg-white py-2 px-6 text-[#1E1E1E] rounded-full font-line-Regular">
               เข้าสู่ระบบ
             </button>

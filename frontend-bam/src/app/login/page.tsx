@@ -50,7 +50,7 @@ export default function Login() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/auth/login', {
+      const response = await fetch('http://bam-backend.progressio.tech/auth/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -139,7 +139,7 @@ export default function Login() {
           >
             {isLoading ? "กำลังโหลด..." : "ลงชื่อเข้าใช้"}
           </button>
-          <a href='http://localhost:3000/register' className="text-xl font-black text-main-color text-center font-line-bold">สมัครสมาชิก</a>
+          <a href='http://bam.progressio.tech/register' className="text-xl font-black text-main-color text-center font-line-bold">สมัครสมาชิก</a>
         </div>
       </div>
       <Footer />
