@@ -16,7 +16,7 @@ export default function Home() {
 
   const fetchData = async () => {
       try {
-          const response = await axios.get('http://localhost:8000/house/');
+          const response = await axios.get('https://bam-backend.progressio.tech/house/');
           // If response.data is an array, use it directly
           if (Array.isArray(response.data)) {
               setHomeData(response.data);  // Set the array directly to homeData
@@ -76,7 +76,7 @@ export default function Home() {
         </div>
         <button className=' mx-auto bg-main-color rounded-full px-[35px] py-[10px] flex flex-row gap-3 items-center mb-[50px]'>
           <span><Icon icon="material-symbols:home" style={{ color: '#FFFFFF' }} width={21} height={21} /></span>
-          <a href='http://localhost:3000/homelist' className=' text-white text-xl font-line-Regular'>ดูทรัพย์ทั้งหมด</a>
+          <a href='http://bam.progressio.tech/homelist' className=' text-white text-xl font-line-Regular'>ดูทรัพย์ทั้งหมด</a>
         </button>
       </div>
       <Footer/>

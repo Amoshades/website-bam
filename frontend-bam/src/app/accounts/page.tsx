@@ -16,7 +16,7 @@ export default function Accounts() {
   // Fetch user profile
   const fetchProfile = async () => {
     try {
-      const response = await fetch('http://localhost:8000/users/view-profile', {
+      const response = await fetch('http://bam-backend.progressio.tech/users/view-profile', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -47,7 +47,7 @@ export default function Accounts() {
   // Update user profile
   const updateProfile = async () => {
     try {
-      const response = await fetch('http://localhost:8000/users/update-profile', {
+      const response = await fetch('http://bam-backend.progressio.tech/users/update-profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,13 +91,13 @@ export default function Accounts() {
       <NavBar />
       <div className="w-full h-[799px] bg-white px-[192px] py-[30px] flex flex-row">
         <div className="w-[258px] h-[305px] px-[20px] flex flex-col gap-[30px] font-line-bold">
-          <a href="http://localhost:3000/accounts" className="flex flex-row gap-3 items-center text-main-color">
+          <a href="http://bam.progressio.tech/accounts" className="flex flex-row gap-3 items-center text-main-color">
             <span>
               <Icon icon="material-symbols:account-circle-outline" className="text-main-color" width={27.5} height={27.5} />
             </span>
             <p className="text-main-color text-xl font-normal">บัญชี</p>
           </a>
-          <a href="http://localhost:3000/favorite" className="flex flex-row gap-3 items-center">
+          <a href="http://bam.progressio.tech/favorite" className="flex flex-row gap-3 items-center">
             <span>
               <Icon icon="mdi:heart-outline" className="text-black" width={27.5} height={27.5} />
             </span>
