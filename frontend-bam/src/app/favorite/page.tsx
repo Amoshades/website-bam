@@ -29,7 +29,7 @@ export default function Favorite() {
 
     const fetchFavorites = async () => {
         try {
-            const response = await fetch('http://bam-backend.progressio.tech/users/show-favorites', {
+            const response = await fetch('https://bam-backend.progressio.tech/users/show-favorites', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',

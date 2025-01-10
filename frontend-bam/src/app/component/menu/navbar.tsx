@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch('http://bam-backend.progressio.tech/auth/status', {
+      const response = await fetch('https://bam-backend.progressio.tech/auth/status', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -38,7 +38,7 @@ export default function NavBar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://bam-backend.progressio.tech/auth/logout', {
+      const response = await fetch('https://bam-backend.progressio.tech/auth/logout', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

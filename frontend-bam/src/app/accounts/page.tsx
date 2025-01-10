@@ -16,7 +16,7 @@ export default function Accounts() {
   // Fetch user profile
   const fetchProfile = async () => {
     try {
-      const response = await fetch('http://bam-backend.progressio.tech/users/view-profile', {
+      const response = await fetch('https://bam-backend.progressio.tech/users/view-profile', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -47,7 +47,7 @@ export default function Accounts() {
   // Update user profile
   const updateProfile = async () => {
     try {
-      const response = await fetch('http://bam-backend.progressio.tech/users/update-profile', {
+      const response = await fetch('https://bam-backend.progressio.tech/users/update-profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

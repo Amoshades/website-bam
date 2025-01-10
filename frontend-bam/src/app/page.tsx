@@ -60,7 +60,7 @@ export default function Home() {
                 />
             ))
             ) : (
-            <p className="col-span-4 text-center">ไม่มีข้อมูล</p>
+            <p className="col-span-4 text-main_black font-line-bold text-center">ไม่มีข้อมูล</p>
           )}
         </div>
         
@@ -76,7 +76,7 @@ export default function Home() {
         </div>
         <button className=' mx-auto bg-main-color rounded-full px-[35px] py-[10px] flex flex-row gap-3 items-center mb-[50px]'>
           <span><Icon icon="material-symbols:home" style={{ color: '#FFFFFF' }} width={21} height={21} /></span>
-          <a href='http://bam.progressio.tech/homelist' className=' text-white text-xl font-line-Regular'>ดูทรัพย์ทั้งหมด</a>
+          <a href='https://bam.progressio.tech/homelist' className=' text-white text-xl font-line-Regular'>ดูทรัพย์ทั้งหมด</a>
         </button>
       </div>
       <Footer/>

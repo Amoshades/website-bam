@@ -28,7 +28,7 @@ export default function HomeDetail() {
 
   const fetchHouseDetail = async () => {
     try {
-      const response = await axios.get(`http://bam-backend.progressio.tech/house/getdetail?asset_id=${houseId}`);
+      const response = await axios.get(`https://bam-backend.progressio.tech/house/getdetail?asset_id=${houseId}`);
       setHouseData(response.data);
     } catch (error) {
       Swal.fire({
@@ -44,7 +44,7 @@ export default function HomeDetail() {
   const fetchRecommendations = async (method: string, setter: any) => {
     try {
       const response = await axios.post(
-        `http://bam-backend.progressio.tech/recommendation/`,
+        `https://bam-backend.progressio.tech/recommendation/`,
         {},
         {
           params: {
