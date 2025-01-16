@@ -158,7 +158,7 @@ export default function HomeDetail() {
         {/* รายการแนะนำ Collaborative Filtering */}
         <div>
           <h1 className="w-[80%] mx-auto text-2xl font-line-bold text-main-color pb-4 mb-4 mt-10 border-b-2">
-            รายการแนะนำ (Collaborative Filtering)
+            รายการแนะนำ แบบที่ 1
           </h1>
           <div className="w-[80%] mx-auto mt-10 grid grid-rows-1 grid-flow-col place-content-start overflow-x-auto gap-[100px] pb-4">
             {getPaginatedData(recommendationsCF, currentPageCF).map((rec, index) => (
@@ -188,7 +188,7 @@ export default function HomeDetail() {
         {/* รายการแนะนำ Assoc Rules */}
         <div>
           <h1 className="w-[80%] mx-auto text-2xl font-line-bold text-main-color pb-4 mb-4 mt-10 border-b-2">
-            รายการแนะนำ (Assoc Rules)
+            รายการแนะนำ แบบที่ 2
           </h1>
           <div className="w-[80%] mx-auto mt-10 grid grid-rows-1 grid-flow-col place-content-start overflow-x-auto gap-[100px] pb-4">
             {getPaginatedData(recommendationsAR, currentPageAR).map((rec, index) => (
@@ -218,7 +218,7 @@ export default function HomeDetail() {
         {/* รายการแนะนำ Hybrid */}
         <div>
           <h1 className="w-[80%] mx-auto text-2xl font-line-bold text-main-color pb-4 mb-4 mt-10 border-b-2">
-            รายการแนะนำ (Hybrid)
+            รายการแนะนำ แบบที่ 3
           </h1>
           <div className="w-[80%] mx-auto mt-10 grid grid-rows-1 grid-flow-col place-content-start overflow-x-auto gap-[100px] pb-4">
             {getPaginatedData(recommendationsHybrid, currentPageHybrid).map((rec, index) => (
